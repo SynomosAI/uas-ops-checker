@@ -1,0 +1,93 @@
+{
+  "_instructions": "本文件是行业接入四件套之一。域 ID 一经分配不复用。填完跑平台侧校验器自测。",
+  "profile_version": "domain/1.0",
+  "domain_id": "uas",
+  "domain_name": "低空 · 无人驾驶航空器运营",
+  "operator": {
+    "org": "待认领 — 本域开放给具备资质的运营方",
+    "contact": "见 README 的「认领方式」",
+    "agent_card": "https://SynomosAI.github.io/.well-known/agent-card.json"
+  },
+  "attributes": [
+    {
+      "key": "uas.aircraft_class",
+      "type": "enum",
+      "values": [
+        "micro",
+        "light",
+        "small",
+        "medium",
+        "large"
+      ],
+      "issuer_required": true,
+      "ttl_days": 365,
+      "assurance_min": "verified",
+      "visibility_default": "private"
+    },
+    {
+      "key": "uas.registration_status",
+      "type": "enum",
+      "values": [
+        "registered",
+        "unregistered",
+        "exempt"
+      ],
+      "issuer_required": true,
+      "ttl_days": 365,
+      "assurance_min": "verified",
+      "visibility_default": "private"
+    },
+    {
+      "key": "uas.operator_cert",
+      "type": "enum",
+      "values": [
+        "none",
+        "training",
+        "certified",
+        "suspended",
+        "revoked"
+      ],
+      "issuer_required": true,
+      "ttl_days": 365,
+      "assurance_min": "verified",
+      "visibility_default": "private"
+    },
+    {
+      "key": "uas.flight_zone",
+      "type": "enum",
+      "values": [
+        "open",
+        "controlled",
+        "restricted",
+        "prohibited"
+      ],
+      "issuer_required": false,
+      "ttl_days": 30,
+      "assurance_min": "verified",
+      "visibility_default": "private"
+    },
+    {
+      "key": "uas.liability_insurance",
+      "type": "enum",
+      "values": [
+        "insured",
+        "uninsured",
+        "not_required"
+      ],
+      "issuer_required": false,
+      "ttl_days": 365,
+      "assurance_min": "verified",
+      "visibility_default": "private"
+    }
+  ],
+  "checker_endpoint": "mcp://pending-claim/uas-checker",
+  "gate_map_ref": "./gate-map.json",
+  "privacy_ref": "./privacy.json",
+  "red_lines": [
+    "禁飞区与管制空域不得输出任何形式的放行性表述",
+    "未完成实名登记或操控员资质失效的，不得给出可飞结论",
+    "不下适航审定结论，空域状态以管制单位实时公布为唯一依据"
+  ],
+  "valid_from": "2026-09-12",
+  "status": "RESERVED"
+}
