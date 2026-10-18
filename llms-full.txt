@@ -1,0 +1,50 @@
+# uas-ops-checker — 完整文本
+
+本文件为 llms.txt 标准的「完整版」，供长上下文模型一次性读取本仓库的完整说明。
+
+## 这是什么
+
+`uas-ops-checker` 是 SynomosAI 平台「行业接入四件套」的一个域骨架，域 ID `uas`（低空 · 无人驾驶航空器运营），当前状态 RESERVED（占位，开放给具备资质的运营方认领）。它不是可运行的 SDK，而是一份机器可读的域配置声明。
+
+一句话：把「这架无人机能不能在这儿、按这个方式飞」拆成可核验的属性，AI 只做路径提示，不做放行。
+
+## 解决什么问题
+
+1. 低空飞行涉及空域管制、实名登记、操控员资质、保险等多重要件，规则更新频繁。
+2. AI 容易越权给出「可飞 / 合规」结论，但放行权始终在管制单位。
+3. 平台需要一份机器可读的域声明，让每条红线都有对应的阻断规则覆盖。
+
+## 五个属性
+
+- `uas.aircraft_class`：重量/性能分类（micro/light/small/medium/large）
+- `uas.registration_status`：实名登记状态（registered/unregistered/exempt）
+- `uas.operator_cert`：操控员资质与有效性（none/training/certified/suspended/revoked）
+- `uas.flight_zone`：拟飞空域类别（open/controlled/restricted/prohibited）
+- `uas.liability_insurance`：第三者责任险（insured/uninsured/not_required）
+
+## 三条红线（机器可读，对应 gate-map.json 阻断规则）
+
+1. 禁飞区与管制空域不得输出任何形式的放行性表述
+2. 未完成实名登记或操控员资质失效的，不得给出可飞结论
+3. 不下适航审定结论，空域状态以管制单位实时公布为唯一依据
+
+## 快速开始
+
+```bash
+git clone https://github.com/SynomosAI/uas-ops-checker.git
+cd uas-ops-checker
+cat domain.manifest.json   # 查看本域声明
+cat checker.io.json       # 查看 MCP 核验器契约
+```
+
+## 触发词
+
+无人机飞行合规 / 低空运营 / UAV classification / 空域管制 / 实名登记 / 操控员资质 / 第三者责任险 / domain profile / MCP checker / 可核验属性。
+
+## 许可与权利
+
+代码与配置按 MIT 许可使用（© 2026 SynomosAI）。文档的知识版权归 SynomosAI 所有。完整条款见 LICENSE。
+
+## 链接
+
+- 仓库: https://github.com/SynomosAI/uas-ops-checker

@@ -1,9 +1,43 @@
 # uas-ops-checker
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Domain Profile](https://img.shields.io/badge/domain-uas-blue.svg)](domain.manifest.json)
+[![Status: RESERVED](https://img.shields.io/badge/status-RESERVED-orange.svg)](domain.manifest.json)
+[![MCP Checker](https://img.shields.io/badge/checker-MCP%20tool-8a2be2.svg)](checker.io.json)
+[![Privacy by Design](https://img.shields.io/badge/privacy-by--design-2ea44f.svg)](privacy.json)
+
 > **状态：RESERVED（占位 · 开放认领）** — 本仓已按平台协议规范建好行业接入四件套骨架，
 > 等待具备本域资质的运营方认领并填充真实规则。
 
 把「这架无人机能不能在这儿、按这个方式飞」拆成可核验的属性，让 AI 只做路径提示，不做放行。
+
+**关键词 / Keywords**：低空飞行 · 无人机运营 · UAV compliance · domain profile · 电子证据核验 · MCP checker · 隐私 by design · 可核验属性
+
+## 🚀 快速开始 / Quick Start
+
+本仓是一个**行业接入域配置包**（不是可运行的 SDK），克隆后即可检视四件套骨架。
+
+```bash
+# 1. 克隆本仓
+git clone https://github.com/SynomosAI/uas-ops-checker.git
+cd uas-ops-checker
+
+# 2. 查看本域声明（属性清单 / 签发方要求 / 红线）
+cat domain.manifest.json
+
+# 3. 查看核验器输入输出契约（MCP 工具 schema）
+cat checker.io.json
+```
+
+```bash
+# 4. 查看本域「什么动作要多少摩擦」阻断规则
+cat gate-map.json
+
+# 5. 查看本域隐私声明（默认关闭 / 最小必要 / 可撤回 / 可删除）
+cat privacy.json
+```
+
+认领后，请在 `domain.manifest.json` 中填注 `operator` 与 `checker_endpoint`，并按现行有效规则校准属性取值与红线表述。
 
 ## 这个域管什么
 
@@ -48,6 +82,24 @@
 | `gate-map.json` | 本域「什么动作要多少摩擦」：silent / warn / confirm / block / require-owner |
 | `privacy.json` | 本域隐私声明：默认关闭、最小必要、可撤回、可删除 |
 | `checker` | 本域核验器（MCP 工具，**只出示核验，不下判定**） |
+
+## 仓库结构 / Repository layout
+
+```text
+uas-ops-checker/
+├── README.md              # 本文件
+├── README.en.md           # 英文版说明
+├── LICENSE                # MIT License（© 2026 SynomosAI）
+├── domain.manifest.json   # 本域声明（属性 / 签发方 / 红线）
+├── gate-map.json          # 动作摩擦级别与阻断规则
+├── privacy.json           # 隐私声明（默认关闭 / 可撤回 / 可删除）
+├── checker.io.json        # MCP 核验器输入输出契约
+├── llms.txt               # 给 AI 的最小索引
+├── llms-full.txt          # 给 AI 的完整文本
+├── AGENTS.md              # 给 AI Agent 的工作指引
+├── SECURITY.md            # 安全策略
+└── .github/CODEOWNERS      # 代码所有者
+```
 
 ## 核心原则
 
