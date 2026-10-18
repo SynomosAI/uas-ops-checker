@@ -1,0 +1,21 @@
+# uas-ops-checker
+
+> 低空 · 无人驾驶航空器运营域配置包：把无人机飞行合规路径拆成可核验属性，AI 只做路径提示，不做放行。
+
+`uas-ops-checker` 是 SynomosAI 平台「行业接入四件套」的一个域骨架（RESERVED，开放认领）。域 ID `uas`，覆盖机型分类、实名登记、操控员资质、飞行空域、第三者责任险五个属性。核验器（MCP 工具）只出示与核验出处链，不下专业判定。
+
+## 核心
+
+- [README.md](https://github.com/SynomosAI/uas-ops-checker/blob/main/README.md): 域说明、属性清单、红线、认领方式
+- [domain.manifest.json](https://github.com/SynomosAI/uas-ops-checker/blob/main/domain.manifest.json): 本域声明（属性 / 签发方 / 有效期 / 红线）
+- [gate-map.json](https://github.com/SynomosAI/uas-ops-checker/blob/main/gate-map.json): 动作摩擦级别与阻断规则
+- [privacy.json](https://github.com/SynomosAI/uas-ops-checker/blob/main/privacy.json): 隐私声明（默认关闭 / 可撤回 / 可删除）
+- [checker.io.json](https://github.com/SynomosAI/uas-ops-checker/blob/main/checker.io.json): MCP 核验器输入输出契约
+
+## 可选
+
+- [llms-full.txt](https://github.com/SynomosAI/uas-ops-checker/blob/main/llms-full.txt): 完整文本
+- [AGENTS.md](https://github.com/SynomosAI/uas-ops-checker/blob/main/AGENTS.md): 给 AI Agent 的工作指引
+- [SECURITY.md](https://github.com/SynomosAI/uas-ops-checker/blob/main/SECURITY.md): 安全策略
+- [README.en.md](https://github.com/SynomosAI/uas-ops-checker/blob/main/README.en.md): 英文版说明
+- [LICENSE](https://github.com/SynomosAI/uas-ops-checker/blob/main/LICENSE): MIT License
